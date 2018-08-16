@@ -1,0 +1,21 @@
+{
+  "name": "resu",
+  "version": "1.0.0",
+  "description": "Rede Social",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./bin/server.js"
+  },
+  "author": "Ailton Mendes Duarte",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "mongoose": "^5.2.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
