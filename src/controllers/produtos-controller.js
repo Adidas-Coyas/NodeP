@@ -5,10 +5,17 @@ const mongoose = require('mongoose');
 const Produto = mongoose.model('Produto');
 //implementacao do metodo post
 exports.post = (req, res, next) => {
-    //var produto = new Produto(req.body); // perigoso
+    // pegar todos os dados de uma vez
+    // var produto = new Produto(req.body); // perigoso
+    //pegar so os dados necessarios
     var produto = new Produto();
-    //produto.title = req.body.title;
-    //...
+    produto.title = req.body.title;
+    produto.slug = req.body.slug;
+    produto.description = req.body.description;
+    produto.price = req.body.price;
+    produto.active = req.body.active;
+    produto.tags = req.body.tags;
+
     // salvar os itens no banco de dados
     produto
         .save()
@@ -17,15 +24,6 @@ exports.post = (req, res, next) => {
         }).catch(e => {
             res.status(400).send({message: 'Falha ao cadastrar o produto!',data: e});
         });
-        
-       /*produto
-       .save((err) => {
-           if(err){
-            res.status(400).send({message: 'Falha ao cadastrar o produto',data: err});
-           }else{
-            res.status(201).send({message: 'Produto cadastrado com sucesso!'});
-           }
-       });*/
 }
 //implementacao do metodo put
 exports.put = (req, res, next) => {
